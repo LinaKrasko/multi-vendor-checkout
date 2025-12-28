@@ -26,7 +26,7 @@ After checking out from GitHub, follow these steps to get the project running:
     ```
 
 4.  **Start the Application:**
-    Ensure your local server is running or run `php artisan serve` and access it at `http://localhost:8000/api`.
+    Ensure your local server is running or run `php artisan serve` and access it at `http://localhost:8000`.
 
 ---
 
@@ -161,4 +161,7 @@ To ensure everything is working correctly, run the automated test suite:
 ```bash
 php artisan test
 ```
-This will run unit tests covering vendor grouping, discount calculations, and job dispatching.
+The test suite includes:
+1.  **Vendor Grouping:** Verifies that items from different vendors are correctly split into separate sub-orders.
+2.  **Discount Calculations:** Ensures that cumulative discounts (quantity-based and category-based) are applied correctly to the total price.
+3.  **Notification Dispatching:** Confirms that vendor notification jobs are dispatched for each sub-order created.
