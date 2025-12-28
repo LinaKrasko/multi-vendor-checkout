@@ -13,9 +13,10 @@ After checking out from GitHub, follow these steps to get the project running:
     ```
 
 2.  **Environment and Database:**
-    The project comes with a pre-configured `.env` file and a SQLite database (`database/database.sqlite`). Just ensure the application key is set:
+    The project comes with a pre-configured `.env` file and a SQLite database (`database/database.sqlite`). Just ensure the application key is set and migrations are run:
     ```bash
     php artisan key:generate
+    php artisan migrate:fresh
     ```
 
 3.  **Populate Data:**
