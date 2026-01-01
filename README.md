@@ -6,26 +6,13 @@ This is Laravel-based multi-vendor checkout system. It allows customers to place
 
 After checking out from GitHub, follow these steps to get the project running:
 
-1.  **Install Dependencies (if missing):**
-    If the `vendor` folder is not present, install PHP dependencies. If you are using Laragon, these might already be included:
+1.  **Install Dependencies & Setup:**
     ```bash
     composer install
     ```
+    This command will automatically install PHP dependencies, create your `.env` file, generate the app key, initialize the SQLite database, and import the catalog data.
 
-2.  **Environment and Database:**
-    The project comes with a pre-configured `.env` file and a SQLite database (`database/database.sqlite`). Just ensure the application key is set and migrations are run:
-    ```bash
-    php artisan key:generate
-    php artisan migrate:fresh
-    ```
-
-3.  **Populate Data:**
-    Import the initial catalog and discount rules from the provided `catalog.json`:
-    ```bash
-    php artisan catalog:import
-    ```
-
-4.  **Start the Application:**
+2.  **Start the Application:**
     Ensure your local server is running or run `php artisan serve` and access it at `http://localhost:8000`.
 
 ---

@@ -1,0 +1,19 @@
+{
+  "offers": [
+    { "vendor_code": "VENDOR_A", "product_code": "PENCIL", "category": "stationery", "price": 2.50, "stock": 100 },
+    { "vendor_code": "VENDOR_B", "product_code": "PENCIL", "category": "stationery", "price": 2.30, "stock": 50 },
+    { "vendor_code": "VENDOR_A", "product_code": "HEADPHONES", "category": "electronics", "price": 120.00, "stock": 5 },
+    { "vendor_code": "VENDOR_B", "product_code": "HEADPHONES", "category": "electronics", "price": 110.00, "stock": 2 },
+    { "vendor_code": "VENDOR_A", "product_code": "T_SHIRT", "category": "clothing", "price": 50.00, "stock": 2 },
+    { "vendor_code": "VENDOR_B", "product_code": "T_SHIRT", "category": "clothing", "price": 55.00, "stock": 10 },
+    { "vendor_code": "VENDOR_C", "product_code": "TOY_CAR", "category": "toys", "price": 15.00, "stock": 20 }
+  ],
+  "quantity_discount_rules": [
+    { "min_qty": 10, "percent": 5, "is_enabled": true },
+    { "min_qty": 20, "percent": 10, "is_enabled": true }
+  ],
+  "category_discount_rules": [
+    { "category": "toys", "percent": 10, "is_enabled": true },
+    { "category": "electronics", "percent": 5, "is_enabled": false }
+  ]
+}
