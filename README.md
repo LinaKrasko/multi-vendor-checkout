@@ -17,6 +17,18 @@ After checking out from GitHub, follow these steps to get the project running:
 
 ---
 
+### Updating Existing Installations
+
+If you already have the project checked out, run these commands to get the latest changes and refresh your environment:
+
+```bash
+git pull origin main
+composer install
+```
+*(This will update your dependencies and automatically run the setup script to refresh your database and catalog)*
+
+---
+
 ### Configuring Data
 
 The system is designed to import its catalog (products and discount rules) from a JSON file.
