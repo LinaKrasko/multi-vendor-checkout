@@ -18,12 +18,21 @@ class CategoryDiscountRule implements DiscountRuleInterface
             return 0.0;
         }
 
+        $productCodes = $input->items
+            ->map(fn($item) => $item->productCode)
+            ->unique()
+            ->values()
+            ->all();
+
+        $productCategories = VendorProduct::whereIn('product_code', $productCodes)
+            ->whereNotNull('category')
+            ->get()
+            ->keyBy('product_code');
+
         $totalDiscount = 0.0;
 
         foreach ($input->items as $item) {
-            $productInfo = VendorProduct::where('product_code', $item->productCode)
-                ->whereNotNull('category')
-                ->first();
+            $productInfo = $productCategories->get($item->productCode);
 
             if ($productInfo && isset($enabledRules[$productInfo->category])) {
                 $rule = $enabledRules[$productInfo->category];

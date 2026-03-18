@@ -38,7 +38,7 @@ To populate or refresh the database with data from `storage/app/catalog.json`, r
 ```bash
 php artisan catalog:import
 ```
-*Optional: Use `--truncate` to clear existing products before importing.*
+*Optional: Use `--truncate` to clear all existing products and discount rules before importing.*
 
 #### 2. Data Structure
 The `catalog.json` file contains:
@@ -160,7 +160,10 @@ To ensure everything is working correctly, run the automated test suite:
 ```bash
 php artisan test
 ```
-The test suite includes:
-1.  **Vendor Grouping:** Verifies that items from different vendors are correctly split into separate sub-orders.
-2.  **Discount Calculations:** Ensures that cumulative discounts (quantity-based and category-based) are applied correctly to the total price.
-3.  **Notification Dispatching:** Confirms that vendor notification jobs are dispatched for each sub-order created.
+The test suite covers:
+*   **Vendor grouping:** Items from different vendors are split into separate sub-orders.
+*   **Discount calculations:** Cumulative discounts (quantity-based and category-based) are applied correctly.
+*   **Notification dispatching:** Vendor notification jobs are dispatched for each sub-order.
+*   **Error paths:** Unknown products, out-of-stock items, and vendor fallback behaviour.
+*   **Transaction rollback:** A failure mid-checkout leaves no partial state — stock and orders are fully rolled back.
+*   **Catalog import:** Validation, bulk upsert, rule replacement, and warning on missing stock.
